@@ -1,0 +1,101 @@
+::placeholder {
+    font-size: 30px;
+}
+
+.result_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.result_container_left,
+.result_container_right {
+    width:15%
+}
+
+.result_container_center {
+    width: 70%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    border:1px solid black;
+    align-items: center;
+}
+
+.result_container_center_result {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result_container_center_result-image {
+    width: 100%;
+    height:40%;
+    max-height: 500px;
+}
+
+.result_container_center_info {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.result_container_center_info_form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result_container_center_info_form_text {
+    width: 90%;
+    height: 60%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.result_container_center_info_form_button {
+    width: 10%;
+    height: 64%;
+    font-size: 30px;
+    color : rgb(0, 0, 0, 0.6);
+    background-color: white;
+}
+
+.result_container_center_buttons {
+    width: 90%;
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result_container_center_buttons > button {
+    width: 20%;
+    height: 100%;
+    font-size: 30px;
+    color : rgb(0, 0, 0, 0.6);
+}
+
+.result_container_center_images {
+    margin-top: 20px;
+    width: 100%;
+    height: 40%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30% 30% 30%;
+	grid-template-rows: repeat(auto-fill, 1fr);
+    gap: 2% 3%;
+}
+
+.result_container_center_images > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
