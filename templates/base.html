@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프로젝트</title>
-    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
 </head>
 <style>
     * {
@@ -60,7 +61,6 @@
     
 </style>
 <body>
-    <!-- {% block content %} {% endblock %} -->
     <nav class="navbar">
         <!-- {% if not user.is_authenticated %} -->
                 <div class="logout">
@@ -72,11 +72,7 @@
                 </div>
         <!-- {% endif %} -->
     </nav>    
-    <div class="container">
-        <div class="container-left"></div>
-        <div class="container-center"></div>
-        <div class="container-right"></div>
-    </div>    
-
+{% block content %}
+{% endblock %}    
 </body>
 </html>
