@@ -1,0 +1,100 @@
+{% extends 'base.html' %} 
+{% block title %} 회원가입 {% endblock %} 
+{% block content%} 
+{% load static %}
+<script src="{% static 'js/api.js' %}"></script>
+<style>
+    body {
+        background-color: dodgerblue;
+    }
+
+    .wrap {
+        text-align: center;
+    }
+
+    .id > label {
+        margin-top: 60px;
+    }
+    
+    .id > label,
+    .password > label,
+    .username > label,
+    .password-check > label {
+        display: block;
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+    .id {
+        text-align: center;
+    }
+
+
+    .id-input, 
+    .password-input,
+    .text-input {
+        width: 500px;
+        height: 60px;
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 50px;
+    }
+
+    .login-button {
+        width: 200px;
+        height: 70px;
+        font-size: 30px;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: #ffffff;
+        border: none;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .signup {
+        font-size: 25px;
+    }
+
+    .signup > a {
+        text-decoration: none;
+        
+    }
+
+</style>
+<body>
+    <from>
+        <div class="container">
+            <div class="wrap">
+                <!-- {% csrf_token %} -->
+                <div class="id">
+                    <label for="userid">아이디</label>
+                    <input style="background-color: #ffffff" type="text" class="id-input" id="id" name="id" placeholder="아이디를 입력해주세요.">
+                </div>
+                <div class="username">
+                    <label for="username">닉네임</label>
+                    <input style="background-color: #ffffff" type="text" class="text-input" id="username"
+                            name="text" placeholder="닉네임을 입력해주세요.">
+                </div>
+                <div class="password">
+                    <label for="password">비밀번호</label>
+                    <input style="background-color: #ffffff" type="password" class="password-input" id="password"
+                            name="password" placeholder="비밀번호를 입력해주세요.">
+                </div>
+                <div class="password-check">
+                    <label for="password-check">비밀번호  확인</label>
+                    <input style="background-color: #ffffff" type="password" class="password-input" id="password_check"
+                            name="password-check" placeholder="비밀번호를 한번 더 입력해주세요.">
+                </div>
+                <div>
+                    <button type="button" class="login-button" onclick="handleSignin()">회원가입</button>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </from>
+</body>
