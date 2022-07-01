@@ -1,0 +1,53 @@
+body {
+    background-color: dodgerblue;
+}
+
+.wrap {
+    text-align: center;
+}
+
+.id > label {
+    margin-top: 60px;
+}
+
+.id > label,
+.password > label {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.id-input, 
+.password-input,
+.text-input {
+    width: 500px;
+    height: 60px;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.login-button {
+    width: 200px;
+    height: 70px;
+    font-size: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: none;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.signup {
+    font-size: 25px;
+}
+
+.signup > a {
+    text-decoration: none;
+    
+}
