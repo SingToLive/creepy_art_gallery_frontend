@@ -18,8 +18,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('sign_in/', views.sign_in_view, name='signin_view'),
-    path('sign_up/', views.sign_up_view, name='signup_view'),
-    path('result/', views.result_view, name='result'),
+    path("admin/", admin.site.urls),
+    path("sign_in/", views.sign_in_view, name="signin_view"),
+    path("sign_up/", views.sign_up_view, name="signup_view"),
+    path("result/", views.result_view, name="result"),
+    path("", views.main_view, name="main"),
 ]
