@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="file" class="ex_file" name="ex_file" onchange="fileUpload()" multiple />
+
+        <script>
+            function fileUpload() {
+                var fileInput = document.getElementsByClassName('ex_file');
+                var fileArray = [];
+                for (var i = 0; i < fileInput.length; i++) {
+                    if (fileInput[i].files.length > 0) {
+                        for (var j = 0; j < fileInput[i].files.length; j++) {
+                            console.log(fileInput[i].files[j].name); // 파일명 출력
+                            fileArray.push(fileInput[i].files[j].name);
+                        }
+                    }
+                    console.log(fileArray); //파일명 리스트로 출력
+                }
+
+                const formData = new FormData();
+                const photos = document.querySelector('input[type="file"][multiple]');
+
+                formData.append('title', '업로드한이미지');
+                for (let i = 0; i < photos.files.length; i++) {
+                    formData.append(`photos_${i}`, photos.files[i]);
+                }
+
+                fetch('http://localhost:5500/uploadImage', {
+                    mode: 'no-cors',
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        console.log('성공:', result);
+                    })
+                    .catch((error) => {
+                        console.error('실패:', error);
+                    });
+            }
+        </script>
+    </body>
+</html>
