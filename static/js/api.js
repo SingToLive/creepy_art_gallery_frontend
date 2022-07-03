@@ -32,6 +32,7 @@ async function handleSignin(){
 
 
 async function handleLogin(){
+    console.log(user_id)
 
     const loginData = {
         user_id : document.getElementById("user_id").value,
@@ -51,14 +52,15 @@ async function handleLogin(){
 
 
     response_json = await response.json()
-
+    console.log(response_json)
 
     if (response.status ==200){
+        
         localStorage.setItem("access", response_json.access)
         localStorage.setItem("refresh", response_json.refresh);
 
 
-        const base64Url = accessToken.split('.')[1];
+        const base64Url = response_json.access.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
