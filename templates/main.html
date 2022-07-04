@@ -1,31 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>This is main page</title>
-        <style>
-            img {
-                height: 200px;
-                width: 200px;
-            }
-        </style>
-    </head>
+<html>
     <body>
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="file" name="images" multiple />
-            <button>Upload</button>
-        </form>
+        <input type="file" class="ex_file" name="ex_file" onchange="fileUpload()" multiple />
 
-        <!-- 결과 이미지 url 프론트로 넘겨줌-->
-        {{result_image_path}}
-        <hr />
+        <script>
+            function fileUpload() {
+                var fileInput = document.getElementsByClassName('ex_file');
+                var fileArray = [];
+                for (var i = 0; i < fileInput.length; i++) {
+                    if (fileInput[i].files.length > 0) {
+                        for (var j = 0; j < fileInput[i].files.length; j++) {
+                            console.log(fileInput[i].files[j].name); // 파일명 출력
+                            fileArray.push(fileInput[i].files[j].name);
+                        }
+                    }
+                    console.log(fileArray); //파일명 리스트로 출력
+                }
 
-        {%for img in images%}
-        <img src="{{img.images.url}}" alt="Image" />
+                const formData = new FormData();
+                const photos = document.querySelector('input[type="file"][multiple]');
 
-        {%endfor%}
+                formData.append('title', '업로드한이미지');
+                for (let i = 0; i < photos.files.length; i++) {
+                    formData.append(`photos_${i}`, photos.files[i]);
+                }
+
+                fetch('http://127.0.0.1:8000/image/', {
+                    mode: 'no-cors',
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        console.log('성공:', result);
+                    })
+                    .catch((error) => {
+                        console.error('실패:', error);
+                    });
+            }
+        </script>
     </body>
 </html>
