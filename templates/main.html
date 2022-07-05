@@ -18,14 +18,14 @@
             <img id="result_image" src="http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg" />
         </div>
         <div class="result_container_center_info">
-        <form class="result_container_center_info_form">
-            <input type="text" name="image_name" class="result_container_center_info_form_text" placeholder='이미지에 대한 설명을 작성해주세요'/>
-            <input type="submit" name="전시하기" class="result_container_center_info_form_button"/>
-        </form>
+        <div class="result_container_center_info_form">
+            <input type="text" id="image_subscription" name="image_name" class="result_container_center_info_form_text" placeholder='이미지에 대한 설명을 작성해주세요'/>
+            <button type="button" onclick="image_subscription()" name="전시하기" class="result_container_center_info_form_button">제출하기</button>
+        </div>
         </div>
         <div class="result_container_center_buttons">
-        <button type="button">공유하기</button>
-        <button type="button">다시하기</button>
+            <button type="button" id='download'>저장하기</button>
+            <button type="button" onClick="window.location.reload()">다시하기</button>
         </div>
         <div class="result_container_center_images">
             <img src="/static/img/logo drunk.jpg"/>
@@ -36,53 +36,8 @@
     </div>
     <div class="result_container_right"></div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-<script>
-    function fileUpload() {
-        var fileInput = document.getElementsByClassName('ex_file');
-        var fileArray = [];
-        for (var i = 0; i < fileInput.length; i++) {
-            if (fileInput[i].files.length > 0) {
-                for (var j = 0; j < fileInput[i].files.length; j++) {
-                    console.log(fileInput[i].files[j].name); // 파일명 출력
-                    fileArray.push(fileInput[i].files[j].name);
-                }
-            }
-        }
-
-        const formData = new FormData();
-        const photos = document.querySelector('input[type="file"][multiple]');
-
-        
-        formData.append('title', '업로드한이미지');
-        for (let i = 0; i < photos.files.length; i++) {
-            formData.append(`photos_${i}`, photos.files[i]);
-        }
-        
-
-        fetch('http://127.0.0.1:8000/', {
-            
-            method: 'POST',
-            body: formData,
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                if(result.message == "실패") {
-                    throw "실패";
-                }
-                var uploadPanel = document.getElementById("upload_panel").style.display="none";
-                var resultPanel = document.getElementById("result_panel").style.display="block";
-
-                document.getElementById("result_image").src = 
-                    "data:image/jpeg;base64," + result.data;
-            })
-            .catch((error) => {
-                document.write("<h1>사진 전송 실패!</h1>");
-                // console.error는 관리자 도구에서만 실행되요 페이지에 에러문이 나오게 해주세요.
-                console.error('실패:', error);
-            });
-    }
-</script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/result.js' %}"></script>
 {% endblock %}
 </div>
 </body>
