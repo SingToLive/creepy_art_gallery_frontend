@@ -53,12 +53,14 @@
         const formData = new FormData();
         const photos = document.querySelector('input[type="file"][multiple]');
 
+        
         formData.append('title', '업로드한이미지');
         for (let i = 0; i < photos.files.length; i++) {
             formData.append(`photos_${i}`, photos.files[i]);
         }
+        
 
-        fetch('http://127.0.0.1:8000/image/', {
+        fetch('http://127.0.0.1:8000/', {
             
             method: 'POST',
             body: formData,
@@ -75,6 +77,7 @@
                     "data:image/jpeg;base64," + result.data;
             })
             .catch((error) => {
+                document.write("<h1>사진 전송 실패!</h1>");
                 // console.error는 관리자 도구에서만 실행되요 페이지에 에러문이 나오게 해주세요.
                 console.error('실패:', error);
             });
