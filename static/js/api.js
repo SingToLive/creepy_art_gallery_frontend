@@ -81,7 +81,7 @@ async function handleLogin(){
 
         //payload 저장 후 로그인시 메인 페이지로 이동
         localStorage.setItem("payload", jsonPayload);
-        window.location.replace(`${frontend_base_url}/result`);
+        window.location.replace(`${frontend_base_url}/`);
     }else{
         alert("아이디 or 비밀번호가 틀립니다.")
     }
@@ -95,4 +95,5 @@ async function handleLogout(){
     localStorage.removeItem("access");
     alert("로그아웃 되었습니다.")
     location.reload()
+    window.location.replace(`${frontend_base_url}/`);
 }
