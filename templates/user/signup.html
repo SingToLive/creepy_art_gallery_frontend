@@ -13,7 +13,7 @@
     }
 
     .id > label {
-        margin-top: 60px;
+        margin-top: 80px;
     }
     
     .id > label,
@@ -71,15 +71,14 @@
         <div class="container">
             <div class="container-center">
                 <div class="wrap">
-                    <!-- {% csrf_token %} -->
                     <div class="id">
-                        <label for="userid">아이디</label>
+                        <label for="user_id">아이디</label>
                         <input style="background-color: #ffffff" type="text" class="id-input" id="id" name="id" placeholder="아이디를 입력해주세요.">
                     </div>
                     <div class="username">
                         <label for="username">닉네임</label>
-                        <input style="background-color: #ffffff" type="text" class="text-input" id="username"
-                                name="text" placeholder="닉네임을 입력해주세요.">
+                        <input style="background-color: #ffffff" type="text" class="text-input" id="username_input"
+                                name="username" placeholder="닉네임을 입력해주세요.">
                     </div>
                     <div class="password">
                         <label for="password">비밀번호</label>
@@ -92,7 +91,7 @@
                                 name="password-check" placeholder="비밀번호를 한번 더 입력해주세요.">
                     </div>
                     <div>
-                        <button type="button" class="login-button" onclick="handleSignin()">회원가입</button>
+                        <button class="login-button" value="sign_up_view" name="sign_up_view" onclick="handleSignup()">회원가입</button>
                     </div>
                 </div>
             </div>

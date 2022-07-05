@@ -62,15 +62,14 @@ a {
 </style>
 <body>
     <nav class="navbar">
-        <div class="logout">
-            <a href="/logout"> 로그아웃 </a>
-        </div>
-
+            <button type="button" id="loginout" onclick="handleLogout()"> 로그아웃 </button>
         <div class="connection-check">
-            <p>환영합니다.{user}님</p>
+            <h2 id="username"></h2>
         </div>
     </nav> 
+<script src="{% static 'js/api.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
 {% block content %}
-{% endblock %}    
+{% endblock %} 
 </body>
 </html>
