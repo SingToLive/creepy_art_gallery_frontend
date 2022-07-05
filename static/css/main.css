@@ -1,0 +1,76 @@
+.wrap{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background: url("../img/ghost.png") no-repeat center;
+    background-color: #001d25;
+}
+#upload_panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.ex_file {
+    color: transparent;
+}
+.ex_file::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.ex_file::before {
+    width: 270px;
+    text-align: center;
+    content: '으스스한 사진 만들기! 👻';
+    color: rgb(245, 245, 245);
+    display: inline-block;
+    background: transparent;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15pt;
+}
+
+.ex_file:active {
+    outline: 0;
+}
+.ex_file:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: 'paybooc-Light', sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+
+.w-btn:hover {
+    letter-spacing: 1px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+.w-btn:active {
+    transform: scale(1.3);
+}
+
+
+.w-btn-gra1 {
+    background: linear-gradient(-45deg, #00556D 0%, #D04CB4 100%);
+    color: white;
+}
