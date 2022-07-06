@@ -19,7 +19,6 @@
     height:100%;
     display: flex;
     flex-direction: column;
-    border:1px solid black;
     align-items: center;
 }
 
@@ -32,9 +31,9 @@
 }
 
 .result_container_center_result-image {
-    width: 100%;
-    height:40%;
-    max-height: 500px;
+    width: 600px;
+    height:400px;
+    /* max-height: 500px; */
 }
 
 .result_container_center_info {
@@ -57,23 +56,33 @@
     width: 90%;
     height: 60%;
     text-align: center;
-    font-size: 30px;
+    font-size: 1.75em;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+
 }
 
 .result_container_center_info_form_button {
-    width: 10%;
-    height: 64%;
-    font-size: 30px;
-    color : rgb(0, 0, 0, 0.6);
+    width: 20%;
+    height: 60%;
+    font-size: 20px;
+    color : rgba(255, 255, 255, 0.945);
     background-color: white;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 20px 20px 0px;
+    background: linear-gradient(-45deg, #FA3837 0%, #005f68 100%);
+    border: none;
 }
 
 .result_container_center_buttons {
-    width: 90%;
+    width: 130%;
     height: 7%;
+    
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    
 }
 
 .result_container_center_buttons > button {
@@ -81,9 +90,10 @@
     height: 100%;
     font-size: 30px;
     color : rgb(0, 0, 0, 0.6);
+    
 }
 
-.result_container_center_images {
+/* .result_container_center_images {
     margin-top: 20px;
     width: 100%;
     height: 40%;
@@ -92,10 +102,50 @@
     grid-template-columns: 30% 30% 30%;
 	grid-template-rows: repeat(auto-fill, 1fr);
     gap: 2% 3%;
-}
+} */
 
 .result_container_center_images > img {
     width: 100%;
     height: 100%;
     display: block;
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+
+
+
+.re_button:hover {
+    letter-spacing: 1px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+.re_button:active {
+    transform: scale(1.3);
+}
+
+
+.re_button-gra1 {
+    background: linear-gradient(-45deg, #FA3837 0%, #003237 100%);
+    color: white;
+}
+
+.re_button{
+    margin-top: 200px;
+    /* position: relative; */
+    border: none;
+    /* display: inline-block; */
+    /* padding: 15px 30px; */
+    border-radius: 15px;
+    font-family: 'paybooc-Light', sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.25s;
+}
+
+
